@@ -1,7 +1,7 @@
 # vim:set sw=8 nosta:
 
 COPTS=-Os -Wall -g
-LDFLAGS=-g -ldl
+LDFLAGS=-g
 
 CFLAGS=$(COPTS)
 FPIC=-fPIC
