@@ -39,7 +39,7 @@ static void action_dumb(const struct settings_t *settings, const struct uevent_t
  * Returns: Newly allocated string in "key=value" form
  *
  */
-static char* alloc_env(const char *key, const char *value) {
+char* alloc_env(const char *key, const char *value) {
 	size_t keylen, vallen;
 	char *combined;
 
