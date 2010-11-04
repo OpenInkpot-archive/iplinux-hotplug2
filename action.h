@@ -12,5 +12,6 @@
 #include "settings.h"
 
 void action_perform(struct settings_t *, struct uevent_t *);
+char* alloc_env(const char *, const char *);
 #endif /* ifndef ACTION_H */
 
