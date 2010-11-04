@@ -40,5 +40,6 @@ ifdef STATIC_WORKER
   CFLAGS += -DSTATIC_WORKER=1
 else
   CFLAGS += $(FPIC)
+  LDFLAGS += -ldl
 endif
 
