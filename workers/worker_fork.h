@@ -35,4 +35,9 @@ struct worker_fork_ctx_t {
 	struct settings_t			*settings;
 };
 
+struct worker_fork_uevent_t {
+	struct uevent_t *uevent;
+	struct worker_fork_uevent_t *next;
+};
+
 #endif
