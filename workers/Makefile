@@ -19,3 +19,7 @@ worker_fork.so: ../action.o ../uevent.o ../xmemutils.o \
 		  ../rules/expression.o ../rules/execution.o ../rules/command.o
 
 include ../common.mak
+
+ifndef STATIC_WORKER
+  CFLAGS += $(FPIC)
+endif
