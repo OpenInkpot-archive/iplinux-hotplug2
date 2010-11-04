@@ -132,6 +132,8 @@ struct uevent_t *uevent_dup(const struct uevent_t *src) {
 	
 	dest = xmalloc(sizeof(struct uevent_t));
 	dest->action = src->action;
+	dest->seqnum = src->seqnum;
+	dest->action_str = strdup(src->action_str);
 	dest->env_vars_c = src->env_vars_c;
 	dest->env_vars = xmalloc(sizeof(struct env_var_t) * dest->env_vars_c);
 	dest->plain_s = src->plain_s;
