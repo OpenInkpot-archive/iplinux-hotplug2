@@ -66,6 +66,7 @@ char* alloc_env(const char *key, const char *value) {
 void action_perform(struct settings_t *settings, struct uevent_t *event) {
 	int i;
 	char **env;
+	struct uevent_t *runevent;
 
 	env = xmalloc(sizeof(char *) * event->env_vars_c);
 
@@ -74,11 +75,15 @@ void action_perform(struct settings_t *settings, struct uevent_t *event) {
 		putenv(env[i]);
 	}
 
+	runevent = uevent_dup(event);
+
 	if (settings->dumb == 0) {
-		ruleset_execute(&settings->rules, event, settings);
+		ruleset_execute(&settings->rules, runevent, settings);
 	} else {
-		action_dumb(settings, event);
+		action_dumb(settings, runevent);
 	}
+
+	uevent_free(runevent);
 
 	for (i = 0; i < event->env_vars_c; i++) {
 		unsetenv(event->env_vars[i].key);
